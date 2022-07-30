@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import Error from './Error';
 import BooksView from './../features/BooksView';
 import AddBook from './../features/AddBook';
+import EditBook from './../features/EditBook';
 
 const Index = () => {
     return (
@@ -14,6 +15,7 @@ const Index = () => {
                         <Route path='/' element={<Home />}/>
                         <Route path='/show-books' element={<BooksView />}/>
                         <Route path='/add-book' element={<AddBook />}/>
+                        <Route path='/edit-book' element={<EditBook />}/>
                         <Route path='*' element={<Error />}/>
 
                         

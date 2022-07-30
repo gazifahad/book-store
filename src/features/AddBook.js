@@ -2,18 +2,18 @@ import React, { useState } from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import {addBook}  from './BooksSlice';
 import {useNavigate} from 'react-router-dom'
+const { v4: uuidv4 } = require('uuid');
 
 const AddBook = () => {
     const [title,setTitle]=useState('');
     const [author,setAuthor]=useState('');
     const dispatch=useDispatch();
     const navigate=useNavigate();
-    const numberOfBooks=useSelector((state)=>state.booksReducer.books.length)
-    console.log(numberOfBooks);
+    
     const handleSubmit=(e)=>{
        e.preventDefault() ;
        const book={
-        id: numberOfBooks+1,
+        id:uuidv4(),
         title,author
        };
        dispatch(addBook(book))
@@ -21,7 +21,7 @@ const AddBook = () => {
     }
     return (
         <div>
-            <h2>add bok</h2>
+            <h2>add Book</h2>
             <form onSubmit={handleSubmit}>
                 <div className='form-field'>
                     <label htmlFor="title">title</label>
